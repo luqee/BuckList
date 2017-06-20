@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}BuckList-Home{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="col-md-3">
+      <div class="btn-group-vertical" id="side-navigation">
+          <button type="button" class="btn btn-primary">Home</button>
+          <button type="button" class="btn btn-primary">New Bucket List Task</button>
+          <button type="button" class="btn btn-primary">Accomplished Tasks</button>
+          <button type="button" class="btn btn-primary">Pending Tasks</button>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+          <div class="panel-heading">Welcome To Your Home Page.</div>
+          <div class="panel-body">
+              Content
+          </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
