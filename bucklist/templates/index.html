@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}BuckList-Home{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <!-- Header content that contains call to action for registration and Loging in -->
+    <div class="jumbotron">
+      <h1>BuckList</h1>
+      <p> Welcome To Bucklist, You one stop website for every thing, Bucketlist. Register with us and be able to record your
+         bucket list and save it online for safe keeping. </P>
+    </div>
+      <!-- Div containing some testimonials from other users of BuckList -->
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="" alt="Someone">
+                <div class="carousel-caption">
+                    <h3>User One</h3>
+                    <p>The Bucket List Application is Awsome!!</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="" alt="someone-else">
+                <div class="carousel-caption">
+                    <h3>User 2</h3>
+                    <p>Woww!!, I have never seen such an Application</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="" alt="another-one">
+                <div class="carousel-caption">
+                    <h3>Another User</h3>
+                    <p>This has to be the best thing I have ever seen</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+{% endblock %}
