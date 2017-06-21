@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}BuckList-Home{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div id="form-holder">
+        <form id="register-form">
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" id="email" />
+            </div>
+            <div class="form-group">
+                <label for="email">First Name:</label>
+                <input type="text" class="form-control" id="fName" />
+            </div>
+            <div class="form-group">
+                <label for="email">Second Name:</label>
+                <input type="text" class="form-control" id="sName" />
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd" />
+            </div>
+            <div class="form-group">
+                <label for="re-pwd">Confirm Password:</label>
+                <input type="password" class="form-control" id="re-pwd">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
