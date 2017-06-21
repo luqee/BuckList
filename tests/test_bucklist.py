@@ -8,9 +8,22 @@ class BucklistTestCase(unittest.TestCase):
 
 
 
-    def test_correct_status_code(self):
+    def test_correct_index_status_code(self):
         resp = self.tester.get('/')
         self.assertEqual(resp.status_code, 200)
+
+    def test_correct_register_status_code(self):
+        resp = self.tester.get('/register')
+        self.assertEqual(resp.status_code, 200)
+
+    def test_correct_home_status_code(self):
+        resp = self.tester.get('/home')
+        self.assertEqual(resp.status_code, 200)
+
+    def test_correct_login_status_code(self):
+        resp = self.tester.get('/login')
+        self.assertEqual(resp.status_code, 200)
+
 
     def tearDown(self):
         pass

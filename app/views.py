@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 from app import app
 
 """
@@ -17,6 +17,8 @@ def register():
     """
     Return and render register.html template.
     """
+    if request.method == 'POST':
+        form_data = request.form
     return render_template('register.html')
 
 @app.route('/login')
