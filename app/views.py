@@ -19,7 +19,7 @@ def register():
     """
     if request.method == 'POST':
         form_data = request.form
-    return render_template('register.html')
+    return form_data
 
 @app.route('/login')
 def login():
