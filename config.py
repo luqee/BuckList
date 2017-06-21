@@ -7,3 +7,5 @@ class Configuration(object): # Instruct Flask to run the application in DEBUG mo
     Class containing configuration for the flask application instance.
     """
     DEBUG = True
+    WTF_CSRF_ENABLED = True
+    SECRET_KEY = 'mysecret'
