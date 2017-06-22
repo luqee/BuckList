@@ -1,16 +1,23 @@
 class User(object):
+    # f_name = ''
+    # l_name = ''
+    # email = ''
+    # password = ''
+    # buck_lists = []
 
-    def __init__(self,):
+    def __init__(self,f_name, l_name, email, password):
         self.f_name = f_name
         self.l_name = l_name
         self.email = email
         self.password = password
+        #A list of thee user's bucket lists
+        self.buck_lists = []
 
 
-    def logout(self):
+    def store_buck_list(self, buck_list):
         pass
 
-    def register(self):
+    def remove_buck_list(self, id):
         pass
 
 

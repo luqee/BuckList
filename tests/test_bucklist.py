@@ -6,8 +6,6 @@ class BucklistTestCase(unittest.TestCase):
     def setUp(self):
         #create test client
         self.tester = app.test_client()
-        # propagate the exceptions to the test client
-        self.tester.testing = True
 
 
     def test_correct_index_status_code(self):
@@ -26,8 +24,8 @@ class BucklistTestCase(unittest.TestCase):
         resp = self.tester.get('/login')
         self.assertEqual(resp.status_code, 200)
 
-    def test_home_data(self):
-        
+    # def test_home_data(self):
+    #     pass
 
 
     def tearDown(self):
