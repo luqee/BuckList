@@ -1,18 +1,29 @@
 {% extends "base.html" %}
-{% block title %}BuckList-Home{% endblock %}
+{% block title %}BuckList-Login{% endblock %}
 {% block body %}
 <div class="container-fluid">
     <div id="form-holder">
-        <form id="login-form">
-            <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email" />
-            </div>
-            <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" />
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+        <form action = "/login" id="login-form" method="POST">
+            {{ form.hidden_tag() }}
+			<div class="form-group">
+				{{ form.email.label }}
+				{% if form.email.errors %}
+					{% for error in form.email.errors %}
+						<p class="error-message">{{ error }}</p>
+					{% endfor %}
+				{% endif %}
+				{{ form.email }}
+			</div>
+			<div class="form-group">
+				{{ form.password.label }}
+				{% if form.password.errors %}
+					{% for error in form.password.errors %}
+						<p class="error-message">{{ error }}</p>
+					{% endfor %}
+				{% endif %}
+				{{ form.password }}
+			</div>
+			{{ form.submit(class="btn-primary")}}
         </form>
     </div>
 </div>

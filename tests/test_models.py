@@ -27,11 +27,6 @@ class ClassesTestCase(unittest.TestCase):
         user = models.User('luke', 'nzangu', 'luke@gmail.com', '')
         self.assertFalse(self.application.register_user(self.user))
 
-    def test_user_cannot_login_with_empty_password(self):
-        self.assertFalse(self.application.login_user('luke@gmail.com', ''))
-
-    def test_user_cannot_login_without_email(self):
-        self.assertFalse(self.application.login_user('', 'pass'))
 
 
     # def test_user_cannot_create_nameless_bucket_list(self):

@@ -28,15 +28,15 @@ def register():
             # lname = request.form['last_name']
             # email = request.form['email']
             # password = request.form['password']
-            user = models.User()
-            user.f_name = request.form['first_name']
-            user.l_name = request.form['last_name']
-            user.email = request.form['email']
-            user.password = request.form['password']
-            # user = models.User(request.form['first_name'], request.form['last_name'],request.form['email'], request.form['password'])
-            # return user.l_name
-            if bucket.Application.register_user(user):
-                return render_template('home.html')
+            # user = models.User()
+            # user.f_name = request.form['first_name']
+            # user.l_name = request.form['last_name']
+            # user.email = request.form['email']
+            # user.password = request.form['password']
+            user = models.User(request.form['first_name'], request.form['last_name'],request.form['email'], request.form['password'])
+            app = bucket.Application()
+            if app.register_user(user):
+                return render_template('login.html', form=form)
     elif request.method == 'GET':
         return render_template('register.html', form = form)
 
@@ -51,24 +51,24 @@ def login():
             flash('All fields are required.')
             return render_template('login.html', form = form)
         else:
-            # fname = request.form['last_name']
-            # fname = request.form['first_name']
-            # lname = request.form['last_name']
-            # email = request.form['email']
-            # password = request.form['password']
-            user = models.User()
-            user.email = request.form['email']
-            user.password = request.form['password']
-            # user = models.User(request.form['email'], request.form['password'])
-
-            if bucket.Application.login_user(user):
+            email = request.form['email']
+            password = request.form['password']
+            # user = models.User()
+            # user.email = request.form['email']
+            # user.password = request.form['password']
+            app = bucket.Application()
+            # return app.login_user(email, password)
+            if app.login_user(email, password):
                 return render_template('home.html')
+            else:
+                return 'Not able'
     elif request.method == 'GET':
         return render_template('login.html', form = form)
 
-@app.route('/home')
+@app.route('/home', methods=['GET', 'POST'])
 def home():
     """
     Return and render home.html template.
     """
+
     return render_template('home.html')

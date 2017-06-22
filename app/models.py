@@ -1,16 +1,17 @@
 class User(object):
-    f_name = ''
-    l_name = ''
-    email = ''
-    password = ''
+    # f_name = ''
+    # l_name = ''
+    # email = ''
+    # password = ''
+    # buck_lists = []
 
-    # def __init__(self):
-        # self.f_name = f_name
-        # self.l_name = l_name
-        # self.email = email
-        # self.password = password
-        # #A list of thee user's bucket lists
-        # self.buck_lists = []
+    def __init__(self,f_name, l_name, email, password):
+        self.f_name = f_name
+        self.l_name = l_name
+        self.email = email
+        self.password = password
+        #A list of thee user's bucket lists
+        self.buck_lists = []
 
 
     def store_buck_list(self, buck_list):
