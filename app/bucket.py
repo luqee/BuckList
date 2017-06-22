@@ -12,8 +12,13 @@ class Application(object):
         if user.email in self._email_to_user_map.keys():
             return False
         else:
-            self._email_to_user_map[user.email] = user
+            self._email_to_user_map[user.email] = (user, 0)
             return True
 
     def login_user(self, email, password):
-        pass
+        for k, v in self._email_to_user_map.items():
+            if k == email:
+                return True
+            else:
+                pass
+        return False

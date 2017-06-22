@@ -34,18 +34,37 @@ def register():
             user.email = request.form['email']
             user.password = request.form['password']
             # user = models.User(request.form['first_name'], request.form['last_name'],request.form['email'], request.form['password'])
-            return user.l_name
+            # return user.l_name
             if bucket.Application.register_user(user):
                 return render_template('home.html')
     elif request.method == 'GET':
         return render_template('register.html', form = form)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     """
     Return and render login.html template.
     """
-    return render_template('login.html')
+    form = forms.LoginForm()
+    if request.method == 'POST':
+        if form.validate() == False:
+            flash('All fields are required.')
+            return render_template('login.html', form = form)
+        else:
+            # fname = request.form['last_name']
+            # fname = request.form['first_name']
+            # lname = request.form['last_name']
+            # email = request.form['email']
+            # password = request.form['password']
+            user = models.User()
+            user.email = request.form['email']
+            user.password = request.form['password']
+            # user = models.User(request.form['email'], request.form['password'])
+
+            if bucket.Application.login_user(user):
+                return render_template('home.html')
+    elif request.method == 'GET':
+        return render_template('login.html', form = form)
 
 @app.route('/home')
 def home():
