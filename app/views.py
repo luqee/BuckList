@@ -1,9 +1,10 @@
-from flask import render_template, request
+from flask import render_template, request, flash
 from app import app, models, forms
 from app import bucket
 """
 This module defines the routes to be used by the flask application instance.
 """
+
 
 @app.route('/')
 def index():
@@ -12,6 +13,23 @@ def index():
     """
     return render_template('index.html')
 
+
+@app.route('/about')
+def about():
+    """
+    Return and render about.html template.
+    """
+    return render_template('about.html')
+
+
+@app.route('/team')
+def team():
+    """
+    Return and render team.html template.
+    """
+    return render_template('team.html')
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """
@@ -19,9 +37,9 @@ def register():
     """
     form = forms.RegisterForm()
     if request.method == 'POST':
-        if form.validate() == False:
+        if form.validate() is False:
             flash('All fields are required.')
-            return render_template('register.html', form = form)
+            return render_template('register.html', form=form)
         else:
             # fname = request.form['last_name']
             # fname = request.form['first_name']
@@ -33,12 +51,15 @@ def register():
             # user.l_name = request.form['last_name']
             # user.email = request.form['email']
             # user.password = request.form['password']
-            user = models.User(request.form['first_name'], request.form['last_name'],request.form['email'], request.form['password'])
+            user = models.User(request.form['first_name'],
+                request.form['last_name'],request.form['email'],
+                request.form['password'])
             app = bucket.Application()
             if app.register_user(user):
                 return render_template('login.html', form=form)
     elif request.method == 'GET':
-        return render_template('register.html', form = form)
+        return render_template('register.html', form=form)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -47,9 +68,9 @@ def login():
     """
     form = forms.LoginForm()
     if request.method == 'POST':
-        if form.validate() == False:
+        if form.validate() is False:
             flash('All fields are required.')
-            return render_template('login.html', form = form)
+            return render_template('login.html', form=form)
         else:
             email = request.form['email']
             password = request.form['password']
@@ -63,7 +84,8 @@ def login():
             else:
                 return 'Not able'
     elif request.method == 'GET':
-        return render_template('login.html', form = form)
+        return render_template('login.html', form=form)
+
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():

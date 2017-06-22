@@ -2,6 +2,7 @@ from app import models
 from app import bucket
 import unittest
 
+
 class LoginTestCase(unittest.TestCase):
     def setUp(self):
         self.application = bucket.Application()

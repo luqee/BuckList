@@ -5,14 +5,13 @@ class User(object):
     # password = ''
     # buck_lists = []
 
-    def __init__(self,f_name, l_name, email, password):
+    def __init__(self, f_name, l_name, email, password):
         self.f_name = f_name
         self.l_name = l_name
         self.email = email
         self.password = password
-        #A list of thee user's bucket lists
+        # A list of thee user's bucket lists
         self.buck_lists = []
-
 
     def store_buck_list(self, buck_list):
         pass
@@ -27,7 +26,7 @@ class BucketList(object):
         self.name = name
         self.description = descr
         self.date = date
-        #dictionary of tuples
+        # dictionary of tuples
         self.items = {}
 
     def add_item(self, item):

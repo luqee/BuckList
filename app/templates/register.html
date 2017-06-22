@@ -12,7 +12,7 @@
 						<p class="error-message">{{ error }}</p>
 					{% endfor %}
 				{% endif %}
-				{{ form.first_name }}
+				{{ form.first_name(class='form-control') }}
 			</div>
 			<div class="form-group">
 				{{ form.last_name.label }}
@@ -21,7 +21,7 @@
 						<p class="error-message">{{ error }}</p>
 					{% endfor %}
 				{% endif %}
-				{{ form.last_name }}
+				{{ form.last_name(class='form-control') }}
 			</div>
 			<div class="form-group">
 				{{ form.email.label }}
@@ -30,7 +30,7 @@
 						<p class="error-message">{{ error }}</p>
 					{% endfor %}
 				{% endif %}
-				{{ form.email }}
+				{{ form.email(class='form-control') }}
 			</div>
 			<div class="form-group">
 				{{ form.password.label }}
@@ -39,9 +39,9 @@
 						<p class="error-message">{{ error }}</p>
 					{% endfor %}
 				{% endif %}
-				{{ form.password }}
+				{{ form.password(class='form-control') }}
 			</div>
-			{{ form.submit(class="btn-primary")}}
+			{{ form.submit(class="btn-primary")}} or <a href="{{ url_for('login') }}" > login</a> if you have an account
         </form>
     </div>
 </div>
