@@ -12,7 +12,7 @@
 						<p class="error-message">{{ error }}</p>
 					{% endfor %}
 				{% endif %}
-				{{ form.email }}
+				{{ form.email(class='form-control') }}
 			</div>
 			<div class="form-group">
 				{{ form.password.label }}
@@ -21,9 +21,9 @@
 						<p class="error-message">{{ error }}</p>
 					{% endfor %}
 				{% endif %}
-				{{ form.password }}
+				{{ form.password(class='form-control') }}
 			</div>
-			{{ form.submit(class="btn-primary")}}
+			{{ form.submit(class="btn-primary")}} or <a href="{{ url_for('register') }}" > register</a> if you don't have an account
         </form>
     </div>
 </div>
