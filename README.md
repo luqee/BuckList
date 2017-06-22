@@ -10,5 +10,6 @@ Keep track of your dreams and goal, by recording and sharing things you want to 
 # Installation
 
 -Clone this repository on your local machine
+-Install application dependencies by doing `` pip install -r requirements.txt``
 -Add the FLASK_APP environment variable to your path: ``export FLASK_APP=run.py``
 -Run the application using ``flask run``
