@@ -12,25 +12,22 @@
       </div>
     </div>
     <div class="col-md-9">
-        <a href="{{ url_for('create_bucket') }}" role="button" class="btn btn-large btn-primary">Create Bucketlist</a>
       <div class="panel panel-default">
-          <div class="panel-heading">Welcome To Your Home Page.</div>
+          <div class="panel-heading">Welcome To Your Bucketlist items.</div>
           <div class="panel-body">
-              {% for bucket in buckets %}
+              {% for item in items %}
               <div class="panel panel-default">
                   <div class="panel-heading">
-                      <a href="{{ url_for('viewBuck') }}"class="btn btn-large btn-primary">bucket.name</a>
-
+                     item.title
                   </div>
                   <div class="panel-body">
-                      bucket.description
-                      <a href="{{ url_for('removeBuck', buck_id=bucket.id) }}" role="button" class="btn btn-large btn-primary">Remove</a>
+                      item.description
+                      <a href="{{ url_for('removeItem', buck_id=buck_id) }}" role="button" class="btn btn-large btn-primary">Remove</a>
                   </div>
               </div>
               {% endfor %}
           </div>
       </div>
-
     </div>
 
 </div>

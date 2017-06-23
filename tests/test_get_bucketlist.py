@@ -3,7 +3,7 @@ from app import bucket
 import unittest
 
 
-class CreateBuckTestCase(unittest.TestCase):
+class GetBuckTestCase(unittest.TestCase):
     def setUp(self):
         self.application = bucket.Application()
 
