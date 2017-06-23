@@ -11,7 +11,10 @@ class CreateBuckTestCase(unittest.TestCase):
         pass
 
     def test_cannot_create_with_no_data_provided(self):
-        self.assertFalse(self.application.create_buck_list())
+        self.assertFalse(self.application.create_bucket_list(email, bucklist))
 
     def test_cannot_create_with_invalid_data_provided(self):
-        self.assertFalse(self.application.create_buck_list())
+        self.assertFalse(self.application.create_bucket_list(email, bucklist))
+
+    def test_can_create_with_valid_data_provided(self):
+        self.assertFalse(self.application.create_bucket_list(email, bucklist))

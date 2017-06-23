@@ -1,6 +1,11 @@
 class Application(object):
     _email_to_user_map = {}
-    _uid_buck_to
+    _email_to_bucket_list_map = {}
+
+
+
+
+    
     def __new__(cls):
         if not hasattr(cls, 'instance'):
             cls.instance = super(Application, cls).__new__(cls)
@@ -23,6 +28,10 @@ class Application(object):
                 return True
             else:
                 pass
+        return False
 
+    def create_bucket_list(email, bucklist):
+        pass
 
-    def create_buck_list(uid, bucklist):
+    def edit_bucket_list(name):
+        pass
