@@ -1,5 +1,7 @@
 class Application(object):
+    # Dictionary mapping an email address to a User object
     _email_to_user_map = {}
+    # Dictionary mapping an email address to a user's BucketList object
     _email_to_bucket_list_map = {}
 
 
@@ -41,5 +43,11 @@ class Application(object):
         else:
             return False
 
+    '''
+    This method
+    '''
+    def get_bucket_list(self, email):
+        pass
+        
     def edit_bucket_list(name):
         pass
