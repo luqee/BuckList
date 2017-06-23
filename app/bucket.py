@@ -5,7 +5,7 @@ class Application(object):
 
 
 
-    
+
     def __new__(cls):
         if not hasattr(cls, 'instance'):
             cls.instance = super(Application, cls).__new__(cls)
@@ -15,7 +15,7 @@ class Application(object):
         if user.email in self._email_to_user_map.keys():
             return False
         else:
-            self._email_to_user_map[user.email] = (user, 0)
+            self._email_to_user_map[user.email] = (user)
             return True
 
     def login_user(self, email, password):
@@ -30,8 +30,16 @@ class Application(object):
                 pass
         return False
 
-    def create_bucket_list(email, bucklist):
-        pass
+    '''
+    This method takes email and bucket list object
+    as parameters and inserts both in the _email_to_bucket_list_map
+    provided the email exists in the _email_to_user_map and .
+    '''
+    def create_bucket_list(self, email, bucklist):
+        if email in self._email_to_user_map:
+            _email_to_bucket_list_map[email] = bucklist
+        else:
+            return False
 
     def edit_bucket_list(name):
         pass
