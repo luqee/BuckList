@@ -21,13 +21,14 @@ class User(object):
 
 
 class BucketList(object):
-
     def __init__(self, name, descr, date):
+        self.buck_id = 0
         self.name = name
         self.description = descr
         self.date = date
         # dictionary of tuples
         self.items = {}
+        self.buck_id += 1
 
     def add_item(self, item):
         pass
@@ -48,3 +49,4 @@ class BucketListItem(object):
         self.title = title
         self.desc = descr
         self.date = date
+        self.id = 0
