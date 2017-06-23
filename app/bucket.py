@@ -17,7 +17,7 @@ class Application(object):
         if user.email in self._email_to_user_map.keys():
             return False
         else:
-            self._email_to_user_map[user.email] = (user)
+            self._email_to_user_map[user.email] = user
             return True
 
     def login_user(self, email, password):
@@ -25,8 +25,9 @@ class Application(object):
             return False
         elif email == '':
             return False
-        for k, v in self._email_to_user_map.items():
-            if k == email:
+        for ema in self._email_to_user_map.keys():
+            if ema == email:
+                if password == _email_to_user_map[email].password
                 return True
             else:
                 pass
