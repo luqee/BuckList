@@ -1,11 +1,8 @@
 class Application(object):
     # Dictionary mapping an email address to a User object
     _email_to_user_map = {}
-    # Dictionary mapping an email address to a list of user's BucketLists object
-    _email_to_bucket_list_map = {}
-
-
-
+    # A list of signed in user's email address
+    _signed_in_users = []
 
 
     def __new__(cls):
@@ -25,54 +22,63 @@ class Application(object):
             return False
         elif email == '':
             return False
-        for ema in self._email_to_user_map.keys():
-            if ema == email:
-                if password == _email_to_user_map[email].password
+        if email in self._email_to_user_map.keys():
+            if password == self._email_to_user_map[email].password:
+                self._signed_in_users.append(email)
                 return True
             else:
-                pass
-        return False
+                return False
 
     '''
     This method takes email and bucket list object
     as parameters and inserts both in the _email_to_bucket_list_map
-    provided the email exists in the _email_to_user_map and .
+    provided the email exists in the _email_to_user_map and.
     '''
     def create_bucket_list(self, email, bucklist):
         if email in self._email_to_user_map.keys():
-            bucklist.id = len(_email_to_bucket_list_map[email]) + 1
-            _email_to_bucket_list_map[email].append(bucklist)
+            user = self._email_to_user_map[email]
+            user.buck_lists.append(bucklist)
             return True
         else:
             return False
 
     '''
     This method takes email and returns the associated list
-    of bucketlist objects
+    of a user's bucketlist objects
     '''
-    def get_bucket_list(self, email):
-        if email in self._email_to_bucket_list_map.keys():
-            bucklist = self._email_to_bucket_list_map[email]
-            return bucklist
+    def get_bucket_lists(self, email):
+        if email in self._email_to_user_map.keys():
+            user = self._email_to_user_map[email]
+            bucklists = user.buck_lists
+            return bucklists
+        else:
+            return 0
+
+
+    def remove_bucket_list(email, buck_id):
+            if email in self._email_to_user_map.keys():
+                for buck in self._email_to_user_map[email].buck_lists:
+                    if buck.id == buck_id:
+                        self._email_to_user_map[email].buck_lists.remove(buck)
+                        return True
+            else:
+                return False
+
+
+    def view_bucket_list_items(self, email, buck_id):
+        if email in self._email_to_user_map.keys():
+            for bucket_list in self._email_to_user_map[email].buck_lists
+                if bucket_list.id == buck_id:
+                    return bucket_list.items
         else:
             return False
 
-    def view_bucket_list_items(email, buck_id):
-        if email in self._email_to_bucket_list_map.keys():
-            for buck in _email_to_bucket_list_map[email]:
-                if buck.id == buck_id:
-                    return buck.items
-                    break
-        else:
-            return False
 
-
-    def create_bucket_list_item(email, item, buck_id):
-        if email in self._email_to_bucket_list_map.keys():
-            for buck in _email_to_bucket_list_map[email]:
+    def create_bucket_list_item(self, email, item, buck_id):
+        if email in self._email_to_user_map.keys():
+            for buck in self._email_to_user_map[email].buck_lists:
                 if buck.id == buck_id:
-                    i = len(buck.items) +1
-                    item.id = i
+                    item.id = len(buck.items) +1
                     buck.items.append(item)
                     return True
         else:
@@ -80,24 +86,12 @@ class Application(object):
 
 
     def remove_bucket_list_item(email, buck_id, item_id):
-        if email in self._email_to_bucket_list_map.keys():
-            for buck in _email_to_bucket_list_map[email]:
+        if email in self._email_to_user_map.keys():
+            for buck in _email_to_user_map[email].buck_lists:
                 if buck.id == buck_id:
-                    i = _email_to_bucket_list_map.index(buck)
-                    del _email_to_bucket_list_map[i]
-                    return True
-                    break
-        else:
-            return False
-
-
-    def remove_bucket_list(email, buck_id):
-        if email in self._email_to_bucket_list_map.keys():
-            for buck in _email_to_bucket_list_map[email]:
-                if buck.id == buck_id:
-                    i = _email_to_bucket_list_map.index(buck)
-                    del _email_to_bucket_list_map[i]
-                    return True
-                    break
+                    for item in buck.items:
+                        if item.id == item_id:
+                            buck.items.remove(item)
+                            return True
         else:
             return False

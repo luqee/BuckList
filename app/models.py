@@ -1,9 +1,4 @@
 class User(object):
-    # f_name = ''
-    # l_name = ''
-    # email = ''
-    # password = ''
-    # buck_lists = []
 
     def __init__(self, f_name, l_name, email, password):
         self.f_name = f_name
@@ -13,34 +8,15 @@ class User(object):
         # A list of thee user's bucket lists
         self.buck_lists = []
 
-    def store_buck_list(self, buck_list):
-        pass
-
-    def remove_buck_list(self, id):
-        pass
-
 
 class BucketList(object):
     def __init__(self, name, descr, date):
-        self.buck_id = 0
+        self.id = 0
         self.name = name
         self.description = descr
         self.date = date
-        # dictionary of tuples
-        self.items = {}
-        self.buck_id += 1
-
-    def add_item(self, item):
-        pass
-
-    def get_item(self, id):
-        pass
-
-    def remove_item(self, id):
-        pass
-
-    def update_item(self, item):
-        pass
+        # list of bucket list items
+        self.items = []
 
 
 class BucketListItem(object):

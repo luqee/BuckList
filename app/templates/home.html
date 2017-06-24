@@ -2,21 +2,19 @@
 {% block title %}BuckList-Home{% endblock %}
 {% block body %}
 <div class="container-fluid">
-    <div class="col-md-3">
-      <div class="btn-group-vertical" id="side-navigation">
-          <button type="button" class="btn btn-primary">Home</button>
-          <a href="#myModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Launch Demo Modal</a>
-          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createBModal">Create New Bucket List</button> -->
-          <button type="button" class="btn btn-primary">Accomplished Tasks</button>
-          <button type="button" class="btn btn-primary">Pending Tasks</button>
-      </div>
-    </div>
-    <div class="col-md-9">
+    <div class="col-md-12">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <a href="{{ url_for('create_bucket') }}" role="button" class="btn btn-large btn-primary">Create Bucketlist</a>
       <div class="panel panel-default">
           <div class="panel-heading">Welcome To Your Home Page.</div>
           <div class="panel-body">
-              {% for bucket in buckets %}
+              {% for bucket in bucket_lists %}
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <a href="{{ url_for('viewBuck') }}"class="btn btn-large btn-primary">bucket.name</a>
