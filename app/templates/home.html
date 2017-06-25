@@ -17,12 +17,12 @@
               {% for bucket in bucket_lists %}
               <div class="panel panel-default">
                   <div class="panel-heading">
-                      <a href="{{ url_for('viewBuck') }}"class="btn btn-large btn-primary">bucket.name</a>
+                      <a href="{{ url_for('view_bucket', buck_id=bucket.id) }}"class="btn btn-large btn-primary">{{bucket.name}}</a>
 
                   </div>
                   <div class="panel-body">
-                      bucket.description
-                      <a href="{{ url_for('removeBuck', buck_id=bucket.id) }}" role="button" class="btn btn-large btn-primary">Remove</a>
+                      {{bucket.description}}
+                      <a href="{{ url_for('remove_bucket', buck_id=bucket.id) }}" role="button" class="btn btn-large btn-primary">Remove</a>
                   </div>
               </div>
               {% endfor %}
