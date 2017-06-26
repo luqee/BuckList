@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/luqee/BuckList.svg?branch=master)](https://travis-ci.org/luqee/BuckList)
+[![Build Status](https://travis-ci.org/luqee/BuckList.svg?branch=develop)](https://travis-ci.org/luqee/BuckList)
 # BuckList
 Keep track of your dreams and goal, by recording and sharing things you want to achieve.
 
