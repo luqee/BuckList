@@ -11,6 +11,7 @@ class CreateBuckItemTestCase(unittest.TestCase):
         self.application.register_user(self.user)
         self.bucklist = models.BucketList('buck1',
             'this is my first trip', '2/3/17')
+        self.application.create_bucket_list('luke@gmail.com', self.bucklist)
 
     def tearDown(self):
         pass
