@@ -30,5 +30,5 @@ class ClassesTestCase(unittest.TestCase):
         self.assertEqual(self.application.register_user(user), 'Email exists')
 
     def test_register_user_is_successfull_with_valid_data(self):
-        user = models.User('luke', 'nzangu', 'luke@gmail.com', 'pass')
+        user = models.User('luke', 'nzangu', 'lukey@gmail.com', 'pass')
         self.assertEqual(self.application.register_user(user), 'Registered')

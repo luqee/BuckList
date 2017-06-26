@@ -16,13 +16,13 @@ class CreateBuckItemTestCase(unittest.TestCase):
         pass
 
     def test_cannot_create_item_with_no_data_provided(self):
-        bucklist_item = models.BucketListItem('', '', '')
+        bucklist_item = models.BucketListItem(' ', ' ', ' ')
         self.assertFalse(self.application.create_bucket_list_item('luke@gmail.com', bucklist_item, 1))
 
     def test_cannot_create_with_invalid_data_provided(self):
-        bucklist_item = models.BucketListItem('item1', 'my first item on list', 'dkgndsgns')
+        bucklist_item = models.BucketListItem('item1', 'my first item on list', ' ')
         self.assertFalse(self.application.create_bucket_list_item('luke@gmail.com', bucklist_item, 1))
 
     def test_can_create_with_valid_data_provided(self):
         bucklist_item = models.BucketListItem('item1', 'my first item on list', '2/3/17')
-        self.assertFalse(self.application.create_bucket_list_item('luke@gmail.com', bucklist_item, 1))
+        self.assertTrue(self.application.create_bucket_list_item('luke@gmail.com', bucklist_item, 1))
