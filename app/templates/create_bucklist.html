@@ -2,19 +2,11 @@
 {% block title %}BuckList-Home{% endblock %}
 {% block body %}
 <div class="container-fluid">
-    <div class="col-md-3">
-      <div class="btn-group-vertical" id="side-navigation">
-          <button type="button" class="btn btn-primary">Home</button>
-          <button type="button" class="btn btn-primary">Create New Bucket List</button>
-          <button type="button" class="btn btn-primary">Accomplished Tasks</button>
-          <button type="button" class="btn btn-primary">Pending Tasks</button>
-      </div>
-    </div>
-    <div class="col-md-9">
+    <div class="col-md-12">
       <div class="panel panel-default">
           <div class="panel-heading">Create A bucket list.</div>
           <div class="panel-body">
-              <form action = "/createBuck" id="register-form" method="POST">
+              <form action = "/createBuck" id="create_buck-form" method="POST">
                   {{ form.hidden_tag() }}
       			<div class="form-group">
       				{{ form.name.label }}

@@ -72,22 +72,29 @@ class Application(object):
 
 
     def get_bucket_lists(self, email):
-        '''
+        ''' Get a user's bucket lists.
+
         This method takes email and returns the associated list
         of a user's bucketlist objects
+
+        params: email
         '''
         if email in self._email_to_user_map.keys():
             user = self._email_to_user_map[email]
             bucklists = user.buck_lists
             return bucklists
-        return False
+        return 'Not registered'
 
 
     def remove_bucket_list(self, email, buck_id):
-        '''
+        ''' Remove a bucket list object.
+
         This method takes as arguments the variables email and bucket list id
         and returns True if the bucket list is deleted or
         False otherwise.
+
+        param: email
+        param: bucket list id
         '''
         if email in self._email_to_user_map.keys():
             for buck in self._email_to_user_map[email].buck_lists:
@@ -147,6 +154,7 @@ class Application(object):
                     for item in buck.items:
                         if item.id == item_id:
                             buck.items.remove(item)
+                            import pdb; pdb.set_trace()
                             return True
         else:
             return False

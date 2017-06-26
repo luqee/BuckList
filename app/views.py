@@ -78,7 +78,6 @@ def login():
             app = bucket.Application()
             if app.login_user(email, password):
                 session['email'] = email
-                pdb.set_trace()
                 flash('You were successfully logged in')
                 return redirect(url_for('home'))
             else:
@@ -98,12 +97,10 @@ def logout():
         pdb.set_trace()
         res = buck_app.logout_user(session['email'])
         if res is True:
-            pdb.set_trace()
             email = session.pop(session['email'], None)
-            flash(email + ' has beensuccessfully logged out')
+            flash(email + ' has been successfully logged out')
             return redirect(url_for('index'))
         else:
-            pdb.set_trace()
             return redirect('login')
 
 # p bucket.Application()._signed_in_users
@@ -113,11 +110,12 @@ def home():
     if session.get('email', None) is not None:
         buck_app = bucket.Application()
         bucket_lists = buck_app.get_bucket_lists(session['email'])
-        if bucket_lists != False:
+        if bucket_lists == 'Not registered':
+            return redirect(url_for('index'))
+        elif isinstance(bucket_lists, list):
             return render_template('home.html', bucket_lists=bucket_lists)
     else:
-        flash('You need to log in first')
-        return redirect(url_for('login'))
+        return redirect(url_for('index'))
 
 
 @app.route('/createBuck', methods=['GET', 'POST'])
@@ -150,10 +148,10 @@ def remove_bucket(buck_id):
     res = buck_app.remove_bucket_list(session['email'], buck_id)
     if res:
         flash('successfully deleted')
-        return render_template('home.html')
+        return redirect(url_for('home'))
     else:
         flash('something went wrong')
-        return render_template('home.html')
+        return redirect(url_for('home'))
 
 @app.route('/viewBuck/<int:buck_id>')
 def view_bucket(buck_id):
@@ -186,14 +184,14 @@ def create_item(buck_id):
             flash('Something went wrong!!')
             return render_template('create_item.html', form=form)
     elif request.method == 'GET':
-        return render_template('create_item.html', form=form)
+        return render_template('create_item.html', form=form, buck_id=buck_id)
 
 
 @app.route('/removeItem/<int:buck_id>/<int:item_id>')
-def remove_item(buck_list, item_id):
+def remove_item(buck_id, item_id):
     """ remove Item and redirect to  """
-    app = bucket.Application()
-    res = app.remove_bucket_list_item(sesion['email'], buck_id, item_id)
+    buck_app = bucket.Application()
+    res = buck_app.remove_bucket_list_item(session['email'], buck_id, item_id)
     if res:
         flash('successfully deleted')
         return redirect(url_for('view_bucket', buck_id=buck_id))
