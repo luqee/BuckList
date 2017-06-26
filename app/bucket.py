@@ -69,6 +69,8 @@ class Application(object):
         as parameters and inserts both in the _email_to_bucket_list_map
         provided the email exists in the _email_to_user_map and.
         '''
+        if bucklist.name == ' ' or bucklist.description == ' ' or bucklist.date == ' ':
+            return 'Invalid data'
         if email in self._email_to_user_map.keys():
             user = self._email_to_user_map[email]
             bucklist.id = len(user.buck_lists) + 1
