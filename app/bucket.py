@@ -137,7 +137,7 @@ class Application(object):
 
         return: boolean
         '''
-        if item.name == ' ' or item.description == ' ' or item.date == ' ':
+        if item.title == ' ' or item.description == ' ' or item.date == ' ':
             return 'Invalid data'
         if email in self._email_to_user_map.keys():
             for buck in self._email_to_user_map[email].buck_lists:
