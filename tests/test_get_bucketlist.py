@@ -11,7 +11,7 @@ class GetBuckTestCase(unittest.TestCase):
         pass
 
     def test_cannot_get_bucket_list_of_non_existent_user(self):
-        self.assertFalse(self.application.get_bucket_list('luke@gmail.com'))
+        self.assertFalse(self.application.view_bucket_list_items('luke@gmail.com', 1))
 
     def test_gets_bucket_list_of_valid_user(self):
-        self.assertFalse(self.application.get_bucket_list('luke@gmail.com'))
+        self.assertFalse(self.application.view_bucket_list_items('luke@gmail.com',1))

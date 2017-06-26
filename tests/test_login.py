@@ -6,6 +6,10 @@ import unittest
 class LoginTestCase(unittest.TestCase):
     def setUp(self):
         self.application = bucket.Application()
+        self.user = models.User('luke', 'nzangu',
+            'luke@gmail.com', 'pass')
+        self.application.register_user(self.user)
+
 
     def tearDown(self):
         pass

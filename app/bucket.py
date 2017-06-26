@@ -23,7 +23,13 @@ class Application(object):
         It returns the string "Email exists" if user is already registered
         or the the string "Registered" if successfully registered.
         '''
-        if user.email in self._email_to_user_map.keys():
+        if user.f_name == ' ':
+            return 'First name empty'
+        elif user.email == ' ':
+            return 'Provide Email'
+        elif user.password == ' ':
+            return 'Provide password'
+        elif user.email in self._email_to_user_map.keys():
             return 'Email exists'
         else:
             self._email_to_user_map[user.email] = user
