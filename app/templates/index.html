@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}BuckList-Home{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <!-- Header content that contains call to action for registration and Loging in -->
+    <div class="jumbotron">
+      <h1>BuckList</h1>
+      <p> Welcome To Bucklist, You one stop website for every thing, Bucketlist. Register with us and be able to record your
+         bucket list and save it online for safe keeping. </P>
+      <div class="cta-btns">
+          <a class="btn btn-default" href="{{ url_for('register') }}" role="button">Register</a>
+          <a class="btn btn-default" href="{{ url_for('login') }}" role="button">Login</a>
+      </div>
+    </div>
+      <!-- Div containing some testimonials from other users of BuckList -->
+
+</div>
+{% endblock %}

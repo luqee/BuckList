@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}BuckList-Home{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+          <div class="panel-heading">Create A bucket list.</div>
+          <div class="panel-body">
+              <form action = "/createBuck" id="create_buck-form" method="POST">
+                  {{ form.hidden_tag() }}
+      			<div class="form-group">
+      				{{ form.name.label }}
+      				{% if form.name.errors %}
+      					{% for error in form.name.errors %}
+      						<p class="error-message">{{ error }}</p>
+      					{% endfor %}
+      				{% endif %}
+      				{{ form.name(class='form-control') }}
+      			</div>
+      			<div class="form-group">
+      				{{ form.description.label }}
+      				{% if form.description.errors %}
+      					{% for error in form.description.errors %}
+      						<p class="error-message">{{ error }}</p>
+      					{% endfor %}
+      				{% endif %}
+      				{{ form.description(class='form-control') }}
+      			</div>
+      			<div class="form-group">
+      				{{ form.date.label }}
+      				{% if form.date.errors %}
+      					{% for error in form.email.errors %}
+      						<p class="error-message">{{ error }}</p>
+      					{% endfor %}
+      				{% endif %}
+      				{{ form.date(class='form-control') }}
+      			</div>
+      			{{ form.submit(class="btn-primary")}}
+              </form>
+          </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
