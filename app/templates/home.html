@@ -6,11 +6,11 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    {{ message }}
+                    <div class=flash>{{ message }}</div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        <a href="{{ url_for('create_bucket') }}" role="button" class="btn btn-large btn-primary">Create Bucketlist</a>
+        <a id="create-buck-btn" href="{{ url_for('create_bucket') }}" role="button" class="btn btn-large btn-primary">Create Bucketlist</a>
       <div class="panel panel-default">
           <div class="panel-heading">Welcome To Your Home Page.</div>
           <div class="panel-body">
@@ -22,7 +22,7 @@
                   </div>
                   <div class="panel-body">
                       {{bucket.description}}
-                      <a href="{{ url_for('remove_bucket', buck_id=bucket.id) }}" role="button" class="btn btn-large btn-primary">Remove</a>
+                      <a id="remove_buck-btn" href="{{ url_for('remove_bucket', buck_id=bucket.id) }}" role="button" class="btn btn-large btn-primary">Remove</a>
                   </div>
               </div>
               {% endfor %}

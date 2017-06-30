@@ -2,8 +2,9 @@
 {% block title %}BuckList-Home{% endblock %}
 {% block body %}
 <div class="container-fluid">
+
     <div class="col-md-12">
-        <a href="{{ url_for('create_item', buck_id=buck_id) }}" role="button" class="btn btn-small btn-primary">Add Item</a>
+        <a id="create_item-btn" href="{{ url_for('create_item', buck_id=buck_id) }}" role="button" class="btn btn-small btn-primary">Add Item</a>
       <div class="panel panel-default">
           <div class="panel-heading">Here are Your Bucketlist items.</div>
           <div class="panel-body">
@@ -17,7 +18,7 @@
                       {{item.description}}
                       {{item.id}}
                       {{item.date}}{{item.description}}
-                      <a href="{{ url_for('remove_item', buck_id=buck_id, item_id=item.id) }}" role="button" class="btn btn-large btn-primary">Remove</a>
+                      <a id="remove_item-btn" href="{{ url_for('remove_item', buck_id=buck_id, item_id=item.id) }}" role="button" class="btn btn-large btn-primary">Remove</a>
                   </div>
               </div>
               {% endfor %}

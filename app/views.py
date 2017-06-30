@@ -43,10 +43,10 @@ def register():
             return render_template('register.html', form=form)
         else:
             user = models.User(request.form['first_name'],
-                request.form['last_name'],request.form['email'],
+                request.form['last_name'], request.form['email'],
                 request.form['password'])
             reg = bucket.Application().register_user(user)
-            if reg == 'Registered' :
+            if reg == 'Registered':
                 flash('You have been successfully registered.')
                 return redirect(url_for('login'))
             elif reg == 'Email exists':

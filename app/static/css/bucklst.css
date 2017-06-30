@@ -3,7 +3,25 @@ body {
     background-color: #1ac6ff;
 }
 
+div.flash {
+    background: #cee5F5;
+    border: 1px solid #aacbe2;
+    padding: 0.5em;
+}
+
 form#register-form {
+    width: 30%;
+    position: relative;
+    left: 400px;
+}
+
+form#create_buck-form {
+    width: 30%;
+    position: relative;
+    left: 400px;
+}
+
+form#create_item-form {
     width: 30%;
     position: relative;
     left: 400px;
@@ -15,14 +33,26 @@ form#login-form {
     left: 400px;
 }
 
-div#form-holder {
+a#create-buck-btn {
+    float: right;
+}
 
+a#create_item-btn {
+    float: right;
+}
+a#remove_buck-btn {
+    float: right;
+}
+
+a#remove_item-btn {
+    float: right;
 }
 
 div#footer {
     position: absolute;
     bottom: 0px;
 }
+
 
 div#footer-content{
     position: relative;
