@@ -78,6 +78,27 @@ class Application(object):
             return True
         return False
 
+    def edit_bucket_list(self, email, bucklist_id, new_bucket):
+        '''
+        This method takes email, bucketlist id 
+        and a bucket list object as parameters and edits the
+        given bucket id item.
+
+        params: email
+        params: Bucketlist Id
+        params: Bucketlist object
+        '''
+        if new_bucket.name == ' ' or new_bucket.description == ' ' or new_bucket.date == ' ':
+            return 'Invalid data'
+        if email in self._email_to_user_map.keys():
+            user = self._email_to_user_map[email]
+            for buck in user.buck_lists:
+                if buck.id == bucklist_id:
+                    buck.name = new_bucket.name
+                    buck.description = new_bucket.description
+                    buck.date = new_bucket.date
+                    return True
+        return False
 
     def get_bucket_lists(self, email):
         ''' Get a user's bucket lists.
