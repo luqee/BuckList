@@ -32,3 +32,9 @@ class CreateBuckItemTestCase(unittest.TestCase):
         ''' Test to check that a user is able to create an item with valid parameters'''
         bucklist_item = models.BucketListItem('item1', 'my first item on list', '2/3/17')
         self.assertTrue(self.application.create_bucket_list_item('luke@gmail.com', bucklist_item, 1))
+
+    def test_can_edit_bucket_list_item(self):
+        ''' Test to check that a user is able to edit an item'''
+        bucklist_item = models.BucketListItem('item1-mod', 'modified item on list', '2/3/17')
+        self.assertTrue(self.application.edit_bucket_list_item('luke@gmail.com', 1, 1, bucklist_item))
+        
