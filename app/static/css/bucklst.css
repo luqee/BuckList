@@ -3,6 +3,10 @@ body {
     background-color: #1ac6ff;
 }
 
+div#nav-links {
+    float: right;
+}
+
 div.flash {
     background: #cee5F5;
     border: 1px solid #aacbe2;
@@ -33,19 +37,22 @@ form#login-form {
     left: 400px;
 }
 
-a#create-buck-btn {
+div#buck_buttons {
     float: right;
 }
 
-a#create_item-btn {
-    float: right;
-}
-a#remove_buck-btn {
+div#item_buttons {
     float: right;
 }
 
-a#remove_item-btn {
-    float: right;
+div.bucket_lists {
+    /*position: relative;*/
+}
+
+div.bucket_list {
+    width: 30%;
+    float: left;
+    margin-left: 10px;
 }
 
 div#footer {

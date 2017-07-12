@@ -209,7 +209,6 @@ class Application(object):
                     for item in buck.items:
                         if item.id == item_id:
                             buck.items.remove(item)
-                            import pdb; pdb.set_trace()
                             return True
         else:
             return False

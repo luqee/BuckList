@@ -153,6 +153,23 @@ def remove_bucket(buck_id):
         flash('something went wrong')
         return redirect(url_for('home'))
 
+@app.route('/editBuck/<int:buck_id>')
+def edit_bucket(buck_id):
+    """ Edits and updates a the user's bucketlist."""
+    if request.method == 'POST':
+        bucket_list = models.BucketList(request.form['name'],
+        request.form['description'], request.form['date'],)
+        buck_app = bucket.Application()
+        res = buck_app.edit_bucket_list(session['email'], buck_id, bucket_list)
+        if res == True:
+            flash('BucketList edited successfully')
+            return redirect('home')
+        else:
+            flash('Something went wrong!!')
+            return render_template('edit_bucklist.html')
+    elif request.method == 'GET':
+        return render_template('edit_bucklist.html')
+
 @app.route('/viewBuck/<int:buck_id>')
 def view_bucket(buck_id):
     """ Returns the page to view bucketlist items."""
@@ -198,3 +215,20 @@ def remove_item(buck_id, item_id):
     else:
         flash('something went wrong')
         return redirect(url_for('view_bucket', buck_id=buck_id))
+
+@app.route('/editItem/<int:buck_id>/<int:item_id>')
+def edit_item(buck_id, item_id):
+    """ Edits and updates a the user's bucketlist item."""
+    if request.method == 'POST':
+        item = models.BucketListItem(request.form['title'],
+        request.form['description'], request.form['date'],)
+        buck_app = bucket.Application()
+        res = buck_app.edit_bucket_list_item(session['email'], buck_id, item_id, item)
+        if res == True:
+            flash('BucketList Item edited successfully')
+            return redirect('home')
+        else:
+            flash('Something went wrong!!')
+            return render_template('edit_item.html')
+    elif request.method == 'GET':
+        return render_template('edit_item.html')
