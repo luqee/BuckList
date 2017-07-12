@@ -169,6 +169,30 @@ class Application(object):
         else:
             return False
 
+    def edit_bucket_list_item(self, email, buck_id, item_id, new_item):
+        ''' Edits an item in the bucket list
+
+        params: email
+        params: bucket list id
+        params: item id
+        params: New item with values to add
+
+        return: boolean
+        '''
+        if new_item.title == ' ' or new_item.desc == ' ' or new_item.date == ' ':
+            return 'Invalid data'
+        if email in self._email_to_user_map.keys():
+            for buck in self._email_to_user_map[email].buck_lists:
+                if buck.id == buck_id:
+                    for item in buck.items:
+                        if item.id == item_id:
+                            item.title = new_item.title
+                            item.desc = new_item.desc
+                            item.date = new_item.date
+                            buck.items.remove(item)
+                            return True
+        else:
+            return False
 
     def remove_bucket_list_item(self, email, buck_id, item_id):
         ''' Removes an item from the bucket list
