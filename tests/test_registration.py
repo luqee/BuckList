@@ -23,8 +23,8 @@ class ClassesTestCase(unittest.TestCase):
         self.assertTrue(self.application.register_user(user), 'Provide password')
     
     def test_user_cannot_register_with_used_email(self):
-        user = models.User('luke', 'nzangu', 'luke@gmail.com', 'pass')
-        user2 = models.User('user', 'imposter', 'luke@gmail.com', 'impoespass')
+        user = models.User('luke', 'nzangu', 'lukaku@gmail.com', 'pass')
+        user2 = models.User('user', 'imposter', 'lukaku@gmail.com', 'impoespass')
         self.assertEqual(self.application.register_user(user), 'Registered')
         self.assertEqual(self.application.register_user(user2), 'Email exists')
 
