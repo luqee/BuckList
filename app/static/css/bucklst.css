@@ -3,7 +3,29 @@ body {
     background-color: #1ac6ff;
 }
 
+div#nav-links {
+    float: right;
+}
+
+div.flash {
+    background: #cee5F5;
+    border: 1px solid #aacbe2;
+    padding: 0.5em;
+}
+
 form#register-form {
+    width: 30%;
+    position: relative;
+    left: 400px;
+}
+
+form#create_buck-form {
+    width: 30%;
+    position: relative;
+    left: 400px;
+}
+
+form#create_item-form {
     width: 30%;
     position: relative;
     left: 400px;
@@ -15,14 +37,29 @@ form#login-form {
     left: 400px;
 }
 
-div#form-holder {
+div#buck_buttons {
+    float: right;
+}
 
+div#item_buttons {
+    float: right;
+}
+
+div.bucket_lists {
+    /*position: relative;*/
+}
+
+div.bucket_list {
+    width: 30%;
+    float: left;
+    margin-left: 10px;
 }
 
 div#footer {
     position: absolute;
     bottom: 0px;
 }
+
 
 div#footer-content{
     position: relative;

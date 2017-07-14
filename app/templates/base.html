@@ -13,11 +13,21 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">BuckList</a>
             </div>
-            <ul class="nav navbar-nav">
+            <!--<ul class="nav navbar-nav">
                 <li><a href="{{url_for('about')}}">About</a></li>
                 <li><a href="{{url_for('team')}}">Team</a></li>
-            </ul>
+            </ul>-->
+            <div id="nav-links">
+                {% if not session.email %}
+                <a href="{{ url_for('login') }}">log in</a>
+                {% else %}
+                <a href="{{ url_for('home') }}">My Home</a>
+                <a href="{{ url_for('logout') }}">log out</a>
+                {% endif %}
+            </div>
+            
           </div>
+          
       </nav>
 
     {% block body %}

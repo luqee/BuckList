@@ -33,7 +33,7 @@ class BucklistTestCase(unittest.TestCase):
         self.assertEqual(resp.status_code, 200)
         
     def tearDown(self):
-        pass
+        self.tester = None
     
     # def register(self, fname, lname, email, password):
     #     return self.tester.post('/register', data=dict(
