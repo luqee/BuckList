@@ -2,8 +2,15 @@
 {% block title %}BuckList-Home{% endblock %}
 {% block body %}
 <div class="container-fluid">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class=flash>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div class="col-md-12">
-        <a href="{{ url_for('create_item', buck_id=buck_id) }}" role="button" class="btn btn-small btn-primary">Add Item</a>
+        <a id="create_item-btn" href="{{ url_for('create_item', buck_id=buck_id) }}" role="button" class="btn btn-md btn-primary">Add Item</a>
       <div class="panel panel-default">
           <div class="panel-heading">Here are Your Bucketlist items.</div>
           <div class="panel-body">
@@ -14,12 +21,17 @@
                      {{item.title}}
                   </div>
                   <div class="panel-body">
-                      {{item.description}}
+                      {{item.desc}}
                       {{item.id}}
-                      {{item.date}}{{item.description}}
-                      <a href="{{ url_for('remove_item', buck_id=buck_id, item_id=item.id) }}" role="button" class="btn btn-large btn-primary">Remove</a>
+                      {{item.date}}{{item.desc}}
+                      <div id="item_buttons">
+                        <a id="remove_item-btn" href="{{ url_for('remove_item', buck_id=buck_id, item_id=item.id) }}" role="button" class="btn btn-large btn-primary">Remove</a>
+                        <a id="remove_item-btn" href="{{ url_for('edit_item', buck_id=buck_id, item_id=item.id) }}" role="button" class="btn btn-large btn-primary">Edit</a>
+                      </div>
                   </div>
               </div>
+              {% else %}
+              <p> There are no Items in Your bucket list. </p>
               {% endfor %}
           </div>
       </div>
