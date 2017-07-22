@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Register</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bucklst.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="bucketlist, bucket-list">
+    <title>Bucket-List</title>
+    <!--<link rel="stylesheet" href="/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="css/bucklst.css">
   </head>
   <body>
-      <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">BuckList</a>
+      <header>
+          <div class="container">
+            <div id="branding">
+                <h1><span class="highlight"> BuckList</span></h1>
             </div>
-            <ul class="nav navbar-nav">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Team</a></li>
-            </ul>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="team.html">Team</a></li>
+                </ul>
+            </nav>
           </div>
-      </nav>
-      <div class="container-fluid">
-          <div class="row-fluid">
-              <div class="col-md-3">
-                <div class="btn-group-vertical" id="side-navigation">
-                    <button type="button" class="btn btn-primary">Home</button>
-                    <button type="button" class="btn btn-primary">New Bucket List Task</button>
-                    <button type="button" class="btn btn-primary">Accomplished Tasks</button>
-                    <button type="button" class="btn btn-primary">Pending Tasks</button>
-                </div>
-              </div>
-              <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Welcome To Your Home Page.</div>
-                    <div class="panel-body">
-                        Content
-                    </div>
-                </div>
-              </div>
+      </header>
+      <!--<section id="newsletter">
+          <div class="container">
+              <h1>Subscribe to our newsletter</h1>
+              <form>
+                  <input type="email" placeholder="Enter Email" />
+                  <button type="submit" class="btn_subscribe">Subscribe</button>
+              </form>
           </div>
-          <!-- Footer content -->
-          <div id="footer">
-              <div id="footer-content">
-              &copy; 2017 Luqee. All Rights Reserved.
+      </section>-->
+      <section id="main">
+          <div class="container">
+              <article id="main-col">
+                  <h1 class="page-title">Dashboard</h1>
+                  <p>Welcome to your Dashboard, Here you can create, edtit<br />
+                  or delete bucketlist objects and bucketlist items.</p>
+                  <a href="create_bucket.html" ><button  id="create_link" type="button">Create</button></a>
+              </article>
           </div>
-      </div>
-
-      <script src="/js/jquery-3.2.1.min.js" charset="utf-8"></script>
-      <script src="/js/bootstrap.min.js" charset="utf-8"></script>
+      </section>
+      <!-- Footer content -->
+        <footer id="footer">
+            <p>&copy; 2017 Luqee. All Rights Reserved.</p>
+        </footer>
+      <!--<script src="/js/jquery-3.2.1.min.js" charset="utf-8"></script>
+      <script src="/js/bootstrap.min.js" charset="utf-8"></script>-->
   </body>
 </html>
